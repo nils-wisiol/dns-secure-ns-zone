@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  recursor:
+    image: pschiffe/pdns-recursor
+    ports:
+      - 5301:53/udp
+      - 5301:53/tcp
+    environment:
+      PDNS_local_address: 0.0.0.0
+      PDNS_allow_from: 0.0.0.0/0
+      PDNS_dnssec: validate
+      # PDNS_loglevel: 6  # for debugging
